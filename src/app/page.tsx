@@ -101,7 +101,7 @@ export default function GestaoDemandas() {
   return (
     <main className="min-h-screen bg-slate-100 p-6 text-slate-800">
       <div className="mx-auto max-w-5xl space-y-8">
-        {/* Cabeçalho */}
+        
         <header className="rounded-lg bg-white p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-slate-900">
             Sistema de Gestão de Demandas Internas
