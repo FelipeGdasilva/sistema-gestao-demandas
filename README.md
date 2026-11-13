@@ -1,108 +1,54 @@
-# 🎮 Locadora de Jogos API
 
-> API RESTful desenvolvida para o gerenciamento completo de uma locadora de jogos, cobrindo o controle de acervo, gestão de clientes e regras de negócio para locações e devoluções.
+# Sistema de Gestão de Demandas Internas
 
----
+Aplicação fullstack desenvolvida para o cadastro, acompanhamento e classificação automática de demandas internas por setor, construída como parte de um desafio técnico.
 
-## 💻 Sobre o Projeto
+## Funcionalidades
 
-Este projeto foi desenvolvido com foco na construção de uma arquitetura sólida para o back-end, aplicando conceitos fundamentais de desenvolvimento web, modelagem relacional e manipulação de dados em tempo real.
+- **Cadastro e Consulta de Demandas:** Registro completo com título, descrição, setor, status e data de solicitação, além de listagem em tempo real.
+- **Classificação Automática de Prioridade:** Demandas que contêm as palavras `"urgente"` ou `"erro"` na descrição são automaticamente classificadas com prioridade **Alta**; as demais recebem prioridade **Normal**.
+- **Validação de Dados:** Impedimento de cadastros com campos obrigatórios vazios tanto no frontend quanto na API.
+- **Painel de Resumo (Dashboard):** Exibição consolidada do total de demandas e distribuição por prioridade, status e setor.
 
-### 🎯 Principais Destaques
+## Tecnologias Utilizadas
 
-- **Arquitetura Modular:** Organização clara das rotas com o Next.js App Router (Route Handlers).
-- **ORM Moderno:** Mapeamento objeto-relacional eficiente e migrações controladas via Prisma ORM.
-- **Ambiente Containerizado:** Banco de dados PostgreSQL isolado e padronizado utilizando Docker Compose.
+- **Frontend:** Next.js (App Router), React, TypeScript, Tailwind CSS
+- **Backend:** Next.js API Routes
+- **Banco de Dados & ORM:** PostgreSQL, Prisma ORM
 
----
+## Como Executar o Projeto
 
-## 🛠️ Tecnologias Utilizadas
+1. **Clone o repositório:**
 
-- **Linguagem:** TypeScript
-- **Framework:** Next.js (App Router / Route Handlers)
-- **Banco de Dados:** PostgreSQL
-- **ORM:** Prisma ORM
-- **Infraestrutura / Container:** Docker & Docker Compose
+   ```bash
+   git clone https://github.com/Felipegdasilva/sistema-gestao-demandas.git
+   cd sistema-gestao-demandas
+   ```
 
----
+2. **Instale as dependências:**
 
-## 📌 Status do Desenvolvimento & Recursos
+   ```bash
+   npm install
+   ```
 
-- [x] Modelagem do banco de dados relacional (PostgreSQL + Prisma)
-- [x] Ambiente de desenvolvimento padronizado com Docker Compose
-- [x] CRUD completo de **Jogos** (`/api/jogos`)
-- [x] CRUD completo de **Clientes** (`/api/clientes`)
-- [x] Módulo de **Locações** (`/api/locacoes`)
-- [x] Validação de dados de entrada na camada da API
+3. **Configure as variáveis de ambiente:**
 
----
+   Crie um arquivo `.env` na raiz do projeto com a string de conexão do PostgreSQL:
 
-## 🤖 Endpoints da API
+   ```env
+   DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_do_banco?schema=public"
+   ```
 
-### 🕹️ Jogos (`/api/jogos`)
+4. **Execute as migrations do banco de dados:**
 
-| Método | Endpoint | Descrição |
-| :--- | :--- | :--- |
-| `GET` | `/api/jogos` | Retorna a lista completa de jogos cadastrados |
-| `POST` | `/api/jogos` | Cadastra um novo jogo no acervo |
+   ```bash
+   npx prisma migrate dev
+   ```
 
-### 👤 Clientes (`/api/clientes`)
+5. **Inicie o servidor de desenvolvimento:**
 
-| Método | Endpoint | Descrição |
-| :--- | :--- | :--- |
-| `GET` | `/api/clientes` | Retorna a lista completa de clientes |
-| `POST` | `/api/clientes` | Cadastra um novo cliente |
+   ```bash
+   npm run dev
+   ```
 
----
-
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
-
-Certifique-se de ter instalado em sua máquina:
-
-- [Node.js](https://nodejs.org/) (v18+)
-- [Git](https://git-scm.com/)
-- [Docker & Docker Compose](https://www.docker.com/)
-
-### Passo a Passo
-
-Instalar as dependências:
-
-```bash
-npm install
-```
-
-Configurar as Variáveis de Ambiente:
-
-Crie um arquivo `.env` na raiz do projeto e configure a URL de conexão com o PostgreSQL:
-
-```env
-DATABASE_URL="postgresql://postgres:SUA_SENHA_AQUI@localhost:5432/locadora_de_jogos?schema=public"
-```
-
-Subir o Banco de Dados com Docker:
-
-```bash
-docker compose up -d
-```
-
-Executar as Migrações do Prisma:
-
-```bash
-npx prisma migrate dev
-```
-
-Iniciar o Servidor de Desenvolvimento:
-
-```bash
-npm run dev
-```
-
-A API estará disponível em http://localhost:3000.
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Acesse http://localhost:3000 no navegador para utilizar o sistema.
