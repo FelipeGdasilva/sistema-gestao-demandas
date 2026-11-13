@@ -3,6 +3,10 @@
 
 Aplicação fullstack desenvolvida para o cadastro, acompanhamento e classificação automática de demandas internas por setor, construída como parte de um desafio técnico.
 
+## Demonstração do Sistema
+
+![Demonstração da Aplicação](./Demo.gif)
+
 ## Funcionalidades
 
 - **Cadastro e Consulta de Demandas:** Registro completo com título, descrição, setor, status e data de solicitação, além de listagem em tempo real.
